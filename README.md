@@ -1,12 +1,17 @@
 # ContextWire MCP Server
 
-A [Model Context Protocol](https://modelcontextprotocol.io/) server that gives AI agents access to web search across 105 engines, academic research, content extraction, and more.
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![MCP](https://img.shields.io/badge/MCP-Compatible-green.svg)](https://modelcontextprotocol.io/)
+[![SimpleQA](https://img.shields.io/badge/SimpleQA-94.3%25-brightgreen.svg)](https://contextwire.dev/compare.html)
+[![Free Tier](https://img.shields.io/badge/Free_Tier-1000_queries%2Fmo-blue.svg)](https://contextwire.dev)
+
+A [Model Context Protocol](https://modelcontextprotocol.io/) server that gives AI agents access to web search across **105 engines**, academic research, content extraction, and more.
 
 **94.3% accuracy on [SimpleQA](https://openai.com/index/introducing-simpleqa/) benchmark.**
 
 ## Quick Setup
 
-Add to your MCP client config (Claude Desktop, Claude Code, etc.):
+Add to your MCP client config (Claude Desktop, Claude Code, Cursor, etc.):
 
 ```json
 {
@@ -18,72 +23,65 @@ Add to your MCP client config (Claude Desktop, Claude Code, etc.):
 }
 ```
 
-That's it. No local server to run — it's a hosted MCP endpoint.
+No local server needed — it's a hosted MCP endpoint.
 
 ## Tools
 
 | Tool | Description |
 |------|-------------|
-| `ask` | Ask a factual question → synthesized answer with sources |
-| `search` | Web search across 105 engines with 14 search profiles |
-| `extract` | Extract clean text/markdown from any URL |
-| `research` | Search academic papers (arXiv, PubMed, Semantic Scholar, etc.) |
-| `batch_search` | Run multiple searches in parallel |
-
-## Examples
-
-### Ask a question
-```
-> ask("What is the current population of Tokyo?")
-
-Tokyo's population is approximately 13.96 million (2024).
-Sources: [Wikipedia, WorldPopulationReview]
-```
-
-### Search with profiles
-```
-> search("rust async tutorial", profile: "code")
-
-1. Asynchronous Programming in Rust - rust-lang.org
-2. Tokio Tutorial - tokio.rs
-3. A practical guide to async Rust - blog.logrocket.com
-...
-```
-
-### Extract a page
-```
-> extract("https://example.com/article", format: "markdown")
-
-# Article Title
-Article content in clean markdown...
-```
+|  | Ask a factual question → synthesized answer with sources |
+|  | Web search across 105 engines with 14 search profiles |
+|  | Extract clean text/markdown from any URL |
+|  | Search academic papers (arXiv, PubMed, Semantic Scholar, etc.) |
+|  | Run multiple searches in parallel |
 
 ## Search Profiles
 
 | Profile | Engines | Best for |
 |---------|---------|----------|
-| `web` | Google, Bing, DDG, Wikipedia | General search |
-| `news` | Google News, Bing News | Current events |
-| `academic` | arXiv, PubMed, Semantic Scholar | Research papers |
-| `code` | GitHub, StackOverflow | Programming |
-| `devnews` | Hacker News, Lobsters, Reddit | Developer news |
-| `finance` | Yahoo Finance, market data | Financial data |
-| `repos` | GitHub, GitLab | Code repositories |
-| `packages` | npm, PyPI, crates.io | Package search |
-| `security` | CVE databases | Security advisories |
-| `social` | Reddit, Twitter | Social media |
-| `reference` | Wikipedia, Wiktionary | Reference material |
-| `images` | Google Images, Bing Images | Image search |
-| `videos` | YouTube, Vimeo | Video search |
-| `all` | All 105 engines | Maximum coverage |
+|  | Google, Bing, DDG, Wikipedia | General search |
+|  | Google News, Bing News | Current events |
+|  | arXiv, PubMed, Semantic Scholar | Research papers |
+|  | GitHub, StackOverflow | Programming |
+|  | Hacker News, Lobsters, Reddit | Developer news |
+|  | Yahoo Finance, market data | Financial data |
+|  | GitHub, GitLab | Code repositories |
+|  | npm, PyPI, crates.io | Package search |
+|  | CVE databases | Security advisories |
+|  | Reddit, Twitter | Social media |
+|  | Wikipedia, Wiktionary | Reference material |
+|  | Google Images, Bing Images | Image search |
+|  | YouTube, Vimeo | Video search |
+|  | All 105 engines | Maximum coverage |
+
+## API Examples
+
+### Ask a question
+```bash
+curl "https://contextwire.dev/api/ask" \
+  -H "Authorization: Bearer YOUR_KEY" \
+  -d '{"q": "What is the current price of Bitcoin?"}'
+```
+
+### Search with profiles
+```bash
+curl "https://contextwire.dev/api/search?q=rust+async+tutorial&profile=code" \
+  -H "Authorization: Bearer YOUR_KEY"
+```
+
+### Extract a page
+```bash
+curl "https://contextwire.dev/api/extract?url=https://example.com&format=markdown" \
+  -H "Authorization: Bearer YOUR_KEY"
+```
 
 ## Free Tier
 
-- 1,000 queries/month
-- No credit card required
-- BYOK (Bring Your Own Key) supported — use your own LLM key to save credits
+- **1,000 queries/month** — no credit card required
+- **BYOK supported** — bring your own LLM key to save credits
+- **/bin/bash LLM cost** — default model is free via OpenRouter
 
-Get your API key at [contextwire.dev](https://contextwire.dev).
+Get your API key at **[contextwire.dev](https://contextwire.dev)**.
 
 ## Node.js SDK
 
@@ -95,11 +93,11 @@ npm install @contextwire/sdk
 import { ContextWire } from '@contextwire/sdk';
 
 const cw = new ContextWire('YOUR_API_KEY');
-
 const answer = await cw.ask('Who invented the transistor?');
 console.log(answer.answer);
-// "The transistor was invented by John Bardeen, Walter Brattain, and William Shockley at Bell Labs in 1947."
 ```
+
+SDK repo: [github.com/keptlive/contextwire-sdk](https://github.com/keptlive/contextwire-sdk)
 
 ## Links
 
@@ -107,6 +105,7 @@ console.log(answer.answer);
 - **API Docs**: [contextwire.dev/docs](https://contextwire.dev/docs.html)
 - **Quickstart**: [contextwire.dev/quickstart](https://contextwire.dev/quickstart.html)
 - **Playground**: [contextwire.dev/playground](https://contextwire.dev/playground.html)
+- **Compare**: [contextwire.dev/compare](https://contextwire.dev/compare.html)
 - **Status**: [contextwire.dev/status](https://contextwire.dev/status.html)
 
 ## License
